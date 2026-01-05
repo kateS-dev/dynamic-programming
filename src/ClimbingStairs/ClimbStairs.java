@@ -9,9 +9,15 @@ public class ClimbStairs {
             return n;
         }
 
-        if (n > 3) {
-            res = climbStairs(n-1) + climbStairs(n-2);
+        int left = 2;
+        int right = 3;
+
+        for (int i = 4; i <= n ; i++) {
+            res = left + right;
+            left = right;
+            right = res;
         }
+
         return res;
     }
 
